@@ -17,9 +17,9 @@ jobs:
           repository: pipe-cd/pipecd
           path: pipecd
       - run: |
-          git -C pipecd rev-parse HEAD > piped-plugin-sdk-go/HEAD.txt
           cd piped-plugin-sdk-go
           rm -rf * && cp -rf ../pipecd/pkg/plugin/sdk/* .
+          git -C ../pipecd rev-parse HEAD > HEAD.txt
           cp -rf ../pipecd/pkg/plugin/sdk/README.remote.md README.md
           if [[ -z `git status --porcelain` ]]; then
             exit
