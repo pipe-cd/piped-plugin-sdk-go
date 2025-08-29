@@ -42,7 +42,7 @@ jobs:
           LATEST_VERSION_PIPECD_COMMIT="$(git show $LATEST_VERSION:./HEAD.txt)"
           CURRENT_SYNCED_PIPECD_COMMIT="$(cat ./HEAD.txt)"
           echo "Previous version PipeCD commit: $LATEST_VERSION_PIPECD_COMMIT"
-          echo "Next version PipeCD commit : $CURRENT_SYNCED_PIPECD_COMMIT"
+          echo "Next version PipeCD commit: $CURRENT_SYNCED_PIPECD_COMMIT"
 
           cd ../pipecd
           cat > output.tmp <<EOF
