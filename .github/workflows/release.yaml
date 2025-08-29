@@ -50,7 +50,7 @@ jobs:
           ---
 
           EOF
-          git log --reverse --format="%s" $LATEST_VERSION_PIPECD_COMMIT..$CURRENT_SYNCED_PIPECD_COMMIT -- ./pkg/plugin/sdk/ | sed -E 's/\(#([0-9]+)\)/([#\1](https:\/\/github.com\/pipe-cd\/pipecd\/pull\/\1))/g' >> output.tmp
+          git log --reverse --format="* %s" $LATEST_VERSION_PIPECD_COMMIT..$CURRENT_SYNCED_PIPECD_COMMIT -- ./pkg/plugin/sdk/ | sed -E 's/\(#([0-9]+)\)/([#\1](https:\/\/github.com\/pipe-cd\/pipecd\/pull\/\1))/g' >> output.tmp
 
           cd ../piped-plugin-sdk-go
           gh release create --draft --target "$(git rev-parse HEAD)" --title $INPUT_VERSION --notes-file ../pipecd/output.tmp $INPUT_VERSION
