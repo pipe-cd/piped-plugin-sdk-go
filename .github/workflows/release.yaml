@@ -25,6 +25,7 @@ jobs:
           fetch-depth: 0
       - env:
           INPUT_VERSION: ${{ inputs.version }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           cd piped-plugin-sdk-go
           LATEST_VERSION=$(git tag --sort=version:refname | tail -n 1)
